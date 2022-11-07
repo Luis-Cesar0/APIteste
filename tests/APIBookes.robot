@@ -16,3 +16,8 @@ Buscar um livro especifico (GET em um livro especifico)
     Conferir o status code    200
     Conferir o reason         OK
     Conferir se o retona todos os dados corretos do livro 15
+Cadastrar um novo livro (POST)
+    Cadastra um novo livro
+    Conferir o status code    200
+    Conferir o reason         OK
+    Conferir se o retona todos os dados corretos do livro 0
