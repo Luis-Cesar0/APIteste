@@ -21,3 +21,14 @@ Cadastrar um novo livro (POST)
     Conferir o status code    200
     Conferir o reason         OK
     Conferir se o retona todos os dados corretos do livro 0
+Alterando um livro (PUT)
+    alterando o livro 4
+    Conferir o status code    200
+    Conferir o reason         OK
+    Conferir se o retona todos os dados corretos do livro 4
+Deletar um livro (DELETE)
+    Deletando o livro "200"
+    Conferir o status code    200
+    Conferir o reason         OK
+    Conferindo se o elemento 200 foi deletado
+    

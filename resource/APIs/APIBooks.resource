@@ -13,11 +13,15 @@ ${URL_APIBook}    https://fakerestapi.azurewebsites.net/api/v1/Books
 
 &{BOOK_0}      id=0
 ...            title=Book 0
-...            description=Lorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\n
+...            description=teste
 ...            pageCount=0
-...            excerpt=Lorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\nLorem lorem lorem. Lorem lorem lorem. Lorem lorem lorem.\n
+...            excerpt=Teste
 
-
+&{BOOk_4}      id=4
+...            title=Book 4
+...            description=altera
+...            pageCount=4
+...            excerpt=altera
 
 *** Keywords ***
 Requsitar todos os livros
@@ -53,3 +57,18 @@ Cadastra um novo livro
     ${livros}   POST    ${URL_APIBook}    json=&{BOOK_0}
     Log    ${livros.text}
     Set Test Variable    ${livros}
+
+alterando o livro ${id_Livro}
+    ${livros}    PUT    ${URL_APIBook}/${id_Livro}    json=&{BOOK_4}
+    Log    ${livros.text}
+    Set Test Variable    ${livros}
+
+Deletando o livro "${ID_livro}"
+    ${livros}    DELETE    ${URL_APIBook}/${ID_livro}
+    Log    ${livros.text}
+    Set Test Variable    ${livros}
+    
+Conferindo se o elemento ${ID_livro} foi deletado
+    Should Be Empty   ${livros.content}  
+    
+    
