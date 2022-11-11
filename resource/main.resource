@@ -2,6 +2,7 @@
 Documentation    Arquivpo principal
 
 Resource    ../resource/APIs/APIBooks.resource
+Resource    ../resource/APIs/APIAtividade.resource
 
 
 *** Variables ***
