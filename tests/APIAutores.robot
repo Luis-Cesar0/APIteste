@@ -7,9 +7,16 @@ Suite Setup    conctar a minha API
 
 *** Test Cases ***
 usando GET nos autores
-    Dado que eu requeri todos os autores
+    Dado que requeri todos os autores
     Quando o status code for verificado,retorna 200
     E o reason deve retorna "OK"
     E verifico o comprimento da lista de autores
+
+usendo GET em um autor específico
+    Dado que requeri o autor de numero 15
+    Quando o status code for verificado,retorna 200
+    E o reason deve retorna "OK"
+    E faço um requisição pelo Idbook 5
+
 
  
