@@ -11,6 +11,17 @@ ${Autor_15}    id=15
 ...            idBook=5
 ...            firstName=First Name 15
 ...            lastName=Last Name 15
+
+&{Autor_0}    id=0
+...           idBook=0
+...           firstName="string"
+...           lastName="string
+
+&{Autor_4}    id=4
+...           idBook=0
+...           firstName="string"
+...           lastName="string
+
 *** Keywords ***
 Dado que requeri todos os autores
     ${AUTOR}    Get     ${URL_AUTO}
@@ -25,7 +36,7 @@ E o reason deve retorna "${reason}"
 
 E verifico o comprimento da lista de autores
     ${comprimento}     Get Length   ${AUTOR.json()}  
-    Log To Console    ${comprimento}  
+    Log  ${comprimento} 
 
 Dado que requeri o autor de numero ${num_auto}
     ${AUTOR}    GET    ${URL_AUTO}/${num_auto}
@@ -37,4 +48,18 @@ E faço um requisição pelo Idbook ${ID_Book}
     Log    ${BOOK}
     Set Test Variable    ${BOOK}
 
-        
+Dado que adicionei o autor ${autor}
+    ${AUTOR}    POST    ${URL_AUTO}    json=&{Autor_${autor}}
+    Log    ${AUTOR}
+    Set Test Variable    ${AUTOR}
+
+E verifico o autor ${autor_num}
+    Dictionary Should Contain Item    ${AUTOR.json()}    id           ${Autor_${autor_num}.id}
+    Dictionary Should Contain Item    ${AUTOR.json()}    idBook       ${Autor_${autor_num}.idBook}
+    Dictionary Should Contain Item    ${AUTOR.json()}    firstName    ${Autor_${autor_num}.firstName}
+    Dictionary Should Contain Item    ${AUTOR.json()}    lastName     ${Autor_${autor_num}.lastName}
+
+Dado que eu alterei o autor ${id_Autor}
+    ${AUTOR}    PUT    ${URL_AUTO}/${id_Autor}    json=&{Autor_4}
+    Log    ${AUTOR}
+    Set Test Variable    ${AUTOR}
