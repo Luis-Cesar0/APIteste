@@ -29,3 +29,8 @@ Usando PUT para modificar um Autor
     Quando o status code for verificado,retorna 200
     E o reason deve retorna "OK"
     E verifico o autor 4
+Usando o DELETE para apagar um altor
+    Dado que eu deletei o altor 0
+    Quando o status code for verificado,retorna 200
+    E o reason deve retorna "OK"
+    E verifico se o autor foi deletado

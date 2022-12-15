@@ -25,7 +25,7 @@ ${Autor_15}    id=15
 *** Keywords ***
 Dado que requeri todos os autores
     ${AUTOR}    Get     ${URL_AUTO}
-    Log    ${AUTOR}
+    Log    ${AUTOR.text}
     Set Test Variable    ${AUTOR}
 
 Quando o status code for verificado,retorna ${code}
@@ -40,17 +40,17 @@ E verifico o comprimento da lista de autores
 
 Dado que requeri o autor de numero ${num_auto}
     ${AUTOR}    GET    ${URL_AUTO}/${num_auto}
-    Log    ${AUTOR}
+    Log    ${AUTOR.text}
     Set Test Variable    ${AUTOR}
 
 E faço um requisição pelo Idbook ${ID_Book}
     ${BOOK}    GET    ${book_URL}/${ID_Book}
-    Log    ${BOOK}
+    Log    ${BOOK.text}
     Set Test Variable    ${BOOK}
 
 Dado que adicionei o autor ${autor}
     ${AUTOR}    POST    ${URL_AUTO}    json=&{Autor_${autor}}
-    Log    ${AUTOR}
+    Log    ${AUTOR.text}
     Set Test Variable    ${AUTOR}
 
 E verifico o autor ${autor_num}
@@ -61,5 +61,13 @@ E verifico o autor ${autor_num}
 
 Dado que eu alterei o autor ${id_Autor}
     ${AUTOR}    PUT    ${URL_AUTO}/${id_Autor}    json=&{Autor_4}
-    Log    ${AUTOR}
+    Log    ${AUTOR.text}
     Set Test Variable    ${AUTOR}
+
+Dado que eu deletei o altor ${ID-delete}
+    ${AUTOR}    DELETE    ${URL_AUTO}/${ID-delete}
+    Log    ${AUTOR.text}
+    Set Test Variable    ${AUTOR}
+
+E verifico se o autor foi deletado
+    Should Be Empty    ${AUTOR.content}

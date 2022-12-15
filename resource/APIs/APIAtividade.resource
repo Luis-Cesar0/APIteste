@@ -51,12 +51,12 @@ Dado que foi postado a atividade 31
 
 Dado que fui altera a atividade ${Id_Ativ}
     ${ACTIV}    PUT    ${URL_Activ}/${Id_Ativ}    json=&{ativ_1}  
-    Log    ${ACTIV}
+    Log    ${ACTIV.text}
     Set Task Variable    ${ACTIV}
 
 Dado que foi deletado a atividade ${num_ATIV}
     ${ACTIV}    DELETE    ${URL_Activ}/${num_ATIV}
-    Log    ${ACTIV}
+    Log    ${ACTIV.text}
     Set Task Variable    ${ACTIV}
 
 E verifico se a atividadeee ${num_ATVI} foi deletada 
