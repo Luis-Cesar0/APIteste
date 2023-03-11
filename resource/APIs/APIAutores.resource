@@ -54,8 +54,8 @@ Dado que adicionei o autor ${autor}
     Set Test Variable    ${AUTOR}
 
 E verifico o autor ${autor_num}
-    Dictionary Should Contain Item    ${AUTOR.json()}    id           ${Autor_${autor_num}.id}
-    Dictionary Should Contain Item    ${AUTOR.json()}    idBook       ${Autor_${autor_num}.idBook}
+    Dictionary Should Contain Key    ${AUTOR.json()}    id           ${Autor_${autor_num}.id}
+    Dictionary Should Contain Key   ${AUTOR.json()}    idBook       ${Autor_${autor_num}.idBook}
     Dictionary Should Contain Item    ${AUTOR.json()}    firstName    ${Autor_${autor_num}.firstName}
     Dictionary Should Contain Item    ${AUTOR.json()}    lastName     ${Autor_${autor_num}.lastName}
 

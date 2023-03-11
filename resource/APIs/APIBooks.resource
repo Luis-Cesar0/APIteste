@@ -46,10 +46,10 @@ Conferir se retorna uma lista com "${comprimento}" Livros
     Length Should Be    ${livros.json()}    ${comprimento}
 
 Conferir se o retona todos os dados corretos do livro ${numero}
-    Dictionary Should Contain Item    ${livros.json()}    id             ${BOOK_${numero}.id}
+    Dictionary Should Contain Key    ${livros.json()}    id             ${BOOK_${numero}.id}
     Dictionary Should Contain Item    ${livros.json()}    title          ${BOOK_${numero}.title}
     Dictionary Should Contain Item    ${livros.json()}    description    ${BOOK_${numero}.description}
-    Dictionary Should Contain Item    ${livros.json()}    pageCount      ${BOOK_${numero}.pageCount}
+    Dictionary Should Contain Key    ${livros.json()}    pageCount      ${BOOK_${numero}.pageCount}
     Dictionary Should Contain Item    ${livros.json()}    excerpt        ${BOOK_${numero}.excerpt}
     Should Not Be Empty    ${livros.json()["publishDate"]}
 
